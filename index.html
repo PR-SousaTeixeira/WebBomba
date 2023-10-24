@@ -1,0 +1,156 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomba</title>
+</head>
+<style>
+   h1 {
+  font-size: 30px;
+  padding: 10px;
+  color: black;
+  text-align: center;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#texto{
+    animation-name: texto;
+  animation-duration: 1s;
+  animation-delay: 12s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+    .parent{
+        background-color: white;
+        height: 300px;
+        width: 300px;
+    }
+    .child{
+        background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUSERMWFRIXFhcYFxYYEBgYFxUaGBUWGBUWExYYHSgiGx0lHRYVITIhJSkrLi4uFx8zODUsNygtLisBCgoKDg0OFQ8QFysdFR0tLSstLS0rKy0tLis3Ky4rNystLS0tKysrKy03LS0tKystLy0tLS0rOC03Ky0tLSs3K//AABEIALoBDwMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABwIDBAUGAQj/xAA+EAABAwIDBQUECAYBBQAAAAABAAIDBBESITEFBkFRYQcTInGBMpGhsRQjQlJygtHwM0NiksHhFSRTY4Oi/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAGREBAQEAAwAAAAAAAAAAAAAAAAERIUFR/9oADAMBAAIRAxEAPwCcUREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBEWFW7QazLV3IcPxHggy3vAFybBWPpzL2v8D+i0VTVOebk6e4eXXqqQ9axNdQi0dLXublqOR/wVtqepa/Q58uKmKvIiKAi8JWDDtWKQlscrDZzmHP7TRdwF9bceVjyKDOc4DVWzMOR+XzWh2hteja2T6RKwWeQDiu8ENaQYy3MHMEW5qOO0DfmV8NOyE4Wuv3hkYWCWxycDiBZkLljmg/WC18Js4EzGQ8visJ21SHOa6GQAWId4MLhzacXwNj0UObE7R6x7Z5JnRuiL2FpFgBhc28UYuSRYHxHO7gb8Fppe0WpjkJc0yONjcy20yAwsbYcrA8Od00xPke2YjldwOQzY7ibDQLJdWs+98Com2NvXWSDHOO5YRk0uON3Ilt/CLX1z0yWZJvURxurBJLtostcXPp+qtHao+4fVwCiqt31c0Xu0fmzWjq+0B50JUom//lv6Wjzk/wBKh23ox7Tox/7f9L54qt7qh+hI9Vd2HsSv2g60Qe5t7OkJLY2/idx8hc9FBO0++1Cw2fUMxEgBrSXuJOQDWtBJJPABdBG64BzzF8wQfUHRcduT2eU9DaR311T/ANwjJnMRN4eZz8tF2aoIiIC8JWFtueZkL307GySNFw1z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);
+        height:220px;
+        width: 220px;
+        animation: Aviao 15s ease-in;
+    }
+    #bomba {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  animation-name: bomba;
+  animation-duration: 5s;
+  animation-delay: 10s;
+  animation-iteration-count: 1;
+  background-size: cover;
+  animation-timing-function: linear;
+  background-image: url("https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L2pvYjY4NC0xOTMtcF8xLnbuZw.png?s=AtScsSoJKaCQ0qaGYyPyjT-TH_USU39XKW7XM2-LLp8");
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+#explosao{
+    width: 300px;
+  height: 300px;
+  position: absolute;
+  animation-duration: 10s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  background-image: url("https://www.freepnglogos.com/uploads/explosion-png/explosion-png-dbszabo-deviantart-heart-28.png");
+  animation-fill-mode: forwards;
+  opacity: 0;
+
+}
+
+
+
+
+    @keyframes Aviao {
+        0%{
+            transform: translateY(900px);
+        }
+        33%{
+            transform: translateY(0px);
+        }
+        66%{
+            transform: translateX(550px);
+        }
+        100%{
+           transform: translateX(10000px);
+        }
+    }
+
+    @keyframes bomba {
+  0% {
+    opacity: 1;
+    left: 80vh;
+    top: 0px;
+    background-image: url("https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L2pvYjY4NC0xOTMtcF8xLnBuZw.png?s=AtScsSoJKaCQ0qaGYyPyjT-TH_USU39XKW7XM2-LLp8");
+  }
+
+  33% {
+    background-image: url("https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L2pvYjY4NC0xOTMtcF8xLnBuZw.png?s=AtScsSoJKaCQ0qaGYyPyjT-TH_USU39XKW7XM2-LLp8");
+  }
+
+  66% {
+    top: 50vh;
+    opacity: 1;
+    background-image: url("https://www.freepnglogos.com/uploads/explosion-png/explosion-png-dbszabo-deviantart-heart-28.png");
+  }
+
+  100% {
+    top: 50vh;
+    opacity: 1;
+    background-image: url("https://www.freepnglogos.com/uploads/explosion-png/explosion-png-dbszabo-deviantart-heart-28.png");
+  }
+}
+  @keyframes texto{
+  33% {
+    opacity: 0;
+    left: 80vh;
+    top: 0px;
+  }
+
+  66% {
+    opacity: 0;
+  }
+
+  100% {
+    
+    opacity: 0;
+  }
+}
+  @keyframes explosao{
+    33% {
+    opacity: 1;
+  }
+
+  66% {
+    top: 50vh;
+    opacity: 1;
+  }
+
+  100% {
+    top: 50vh;
+    opacity: 1;
+
+  }
+}
+</style>
+<body>
+    <div class="parent">
+<div class="child" > 
+</div>
+
+    </div>
+    <div id="bomba" class="centered"></div>
+
+    <div id="texto"> <h1>Texto que vai desaparecer</h1></div>
+    <div id="explosao" class="centered"></div>
+
+    
+</body>
+</html>
